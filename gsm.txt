@@ -1,0 +1,35 @@
+
+
+#include <SoftwareSerial.h>
+
+
+
+SoftwareSerial gsmm(2,3);
+
+void setup(){
+Serial.begin(9600); // connect serial
+
+
+ gsmm.begin(9600);
+  gsmm.print("\r");
+  delay(1000);                  
+  gsmm.print("AT+CMGF=1\r");    
+  delay(1000);
+  /*Replace XXXXXXXXXX to 10 digit mobile number &  ZZ to 2 digit country code*/
+  gsmm.print("AT+CMGS=\"+91xxxxxxxxxx\"\r");    
+  delay(1000);
+
+  gsmm.print("HI WELCOME TO TECHTOOB");
+  
+  
+  delay(1000);
+  gsmm.write(0x1A);
+  delay(1000); 
+
+
+
+}
+void loop(){
+  
+
+}
